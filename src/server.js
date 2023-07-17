@@ -1,11 +1,14 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express();
 
-app.get("/", (req, res) => {
-    res.status(200).send({
-      message: "welcome to server",
-    });
-})
+app.use(morgan("dev"))
+
+// app.get("/", (req, res) => {
+//     res.status(200).send({
+//       message: "welcome to server",
+//     });
+// })
 
 app.get("/products", (req, res) => {
   res.status(200).send({
