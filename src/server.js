@@ -9,13 +9,18 @@ app.use(express.urlencoded({ extended: true }));
 
 //create middleware
 const isLoggedIn = (req, res, next) => {
-  console.log("isLogged in middleware");
-  next();
+  //console.log("isLogged in middleware");
+  const login = false;
+  if (login) {
+    next();
+  } else {
+    return res.status(401).json({ message: "Please Login" });
+  }
 };
 
 app.get("/products", (req, res) => {
   res.status(200).send({
-    message: "products are returned",
+    message: "products are returned ",
   });
 });
 
